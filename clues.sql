@@ -26,7 +26,7 @@ SELECT * FROM countrylanguages INNER JOIN countries ON countrylanguages.countryc
 
 
 
-SELECT countrycode FROM cities WHERE name ~ 'Serra' AND countrycode IN(SELECT code FROM countries WHERE region = 'South America');
+SELECT cities.countrycode FROM cities INNER JOIN countries ON cities.countrycode = countries.code WHERE cities.name ~ 'Serra' AND countries.region = 'South America';
 
 
 -- Clue #6: We're close! Our South American agent says she just got a taxi at the airport, and is headed towards
